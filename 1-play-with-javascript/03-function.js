@@ -225,37 +225,127 @@ function teach() {
 
 //-------------------------------------------------------
 
-
-function hello() {
-    console.log("Hello")
-    console.log("😊")
-}
-
-function hello_without_emoji() {
-    console.log("Hello")
-}
-
-function hi() {
-    console.log("Hi")
-    console.log("😀")
-}
-
-function hey() {
-    console.log("Hey")
-    console.log("😀")
-}
-
-hello();
-hi();
-hey();
-
-hello_without_emoji();
-
-
 // design issues
 //------------------
 
 // code tangling i.e tight coupling  ( greeting + emoji  mixed together )
 // code scattering ( emoji code scattered in multiple functions )
 
-//-----------------------------------
+
+function hello() {
+    console.log("Hello")
+}
+function hi() {
+    console.log("Hi")
+}
+function hey() {
+    console.log("Hey")
+}
+
+
+// HOF
+function withEmoji(fn) {
+    return function () {
+        fn();
+        console.log("😊");
+    }
+}
+
+function withAuth(fn) {
+    return function () {
+        console.log("👮‍♀️")
+        fn();
+    }
+}
+
+// const helloWithAuth = withAuth(hello);
+// const helloWithAuthAndEmoji = withEmoji(helloWithAuth);
+// helloWithAuthAndEmoji();
+
+// or
+
+// withEmoji(withAuth(hello))();
+
+
+
+// function closure
+//------------------
+
+/*
+
+A closure is a function that has access to the parent scope ( environment ), 
+even after the parent function has closed.
+
+*/
+
+
+function teach(sub) {
+    console.log(`Teaching ${sub}...`);
+    let notes = `${sub} notes`;
+    let fun = "bla bla bla...";
+    function learn() {
+        console.log(`Learning...`);
+        console.log(`Using ${notes}`);
+    }
+    console.log(`Teaching Ends`)
+    return learn;
+}
+
+// const learnFunc = teach("JavaScript") // teach-scope created
+// teach-scope destroyed
+
+// learnFunc();
+
+
+// why we need closure ?
+//-----------------------
+
+/*
+
+Closures has historically been used to:
+
+- Create private variables
+- Preserve state between function calls
+- Simulate block-scoping before let and const existed
+- Implement certain design patterns like currying and memoization
+
+*/
+
+// Module pattern using IIFE ( Immediately Invoked Function Expression )
+const counter = (function () {
+    console.log("Counter initialized");
+    let count = 0;
+    function increment() {
+        count++;
+    }
+    function getCount() {
+        return count;
+    }
+    return {
+        increment: increment,
+        getCount: getCount
+    }
+})()
+
+// below module standards are used in modern javascript development
+// 1. CommonJS ( used in nodejs ) -> module.exports and require() function
+// 2. ES6 Modules ( used in frontend and nodejs both ) -> export and import keywords
+
+
+//----------------------------------
+
+
+// Quiz
+
+var myFunctions = [];
+function getF(i) {
+    var f = function () {
+        console.log(i);
+    }
+    return f;
+}
+for (var i = 0; i < 100; i++) {
+    myFunctions.push(getF(i));
+}
+myFunctions[0]()
+myFunctions[99]()
