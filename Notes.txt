@@ -1,0 +1,60 @@
+
+why javascript?
+----------------
+-> to develop dynamic-web-ui ( csr ) in browser
+-> to develop server-side applications in 'nodejs' 
+-> to develop mobile applications in 'react-native'
+-> to develop desktop applications in 'electronjs'
+
+
+javascript features
+-------------------
+
+-> single-threaded ( light-weighted process )
+-> all IO operations are asynchronous ( non-blocking ) - https://latentflip.com/loupe/
+-> dynamically-typed ( no need to declare data-type of variable )
+-> functions are first-class citizens ( functions can be treated as data )
+-> supports both object-oriented and functional programming paradigms
+-> huge ecosystem of libraries and frameworks ( 'npm' - node package manager )
+
+how to run javascript code?
+----------------------------
+
+-> using javascript engine ( runtime environment ) - https://en.wikipedia.org/wiki/List_of_JavaScript_engines
+
+1. chrome ( v8 engine  (c++))
+2. firefox ( spider monkey engine (c++) )
+3. safari ( javascript core engine (c++) )
+4. edge ( chakra engine (c++) )
+5. using nodejs ( v8 engine + c++ bindings for IO operations )
+...
+
+Ecmascript ( ES ) specification
+----------------------------
+
+-> 2015 - ES6 ( major update with new features like arrow functions, classes, modules, etc. )
+-> 2016 - ES7 ( minor update with features like exponentiation operator, array includes method, etc. )
+-> 2017 - ES8 ( minor update with features like async/await, Object.values(), etc. )
+....
+
+Helo world in javascript
+-----------------------
+
+Topics to cover
+----------------
+
+level-1
+--------
+1. data types and variables
+2. execution context aka scope
+3. functions and closures ( deep-dive )
+4. 'this' keyword 
+5. datastructures ( arrays, objects, maps, sets, etc. )
+
+level-2
+--------
+6. es6 features ( arrow functions, classes, modules, etc. )
+7. asynchronous programming ( callbacks, promises, async/await )
+8. event loop and microtask queue - https://latentflip.com/loupe/
+9. error handling ( try-catch, throw, etc. )
+10. unit testing ( jest )
