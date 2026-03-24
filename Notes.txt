@@ -57,4 +57,99 @@ level-2
 7. asynchronous programming ( callbacks, promises, async/await )
 8. event loop and microtask queue - https://latentflip.com/loupe/
 9. error handling ( try-catch, throw, etc. )
-10. unit testing ( jest )
+
+
+
+day-2
+------
+
+-> what makes web-UI?
+-> challenges in developing web-UI
+-> solutions to above challenges using third-party libraries and frameworks 
+
+
+
+---------------------
+
+
+UI -> data + style + interactivity
+Web UI -> html + css + `javascript`
+
+
+why we need javascript for in HTML page?
+--------------------------------
+
+using browser provided APIs , javascript can do 'magic' in HTML page 
+
+browse's Apis -> w3c recommendations
+
+browser's vendor implmenetated these apis navtively in c++ 
+and exposed them to javascript as global objects and functions
+
+e.g DOM,XHR,fetch,localStorage,sessionStorage, etc......
+ref: https://developer.mozilla.org/en-US/docs/Web/API
+
+using DOM Api
+------------------
+-> to create/retreive/update/delete HTML elements dynamically
+-> to handle user interactions ( click, hover, scroll, etc. )
+-> to style HTML elements dynamically
+
+using XHR or fetch API
+----------------------
+-> to make network requests 
+
+
+
+
+Front end developers must know below topics 
+-----------------
+
+1. HTML
+2. CSS
+3. JavaScript / TypeScript
+4. Browser APIs ( DOM, XHR, fetch, localStorage, sessionStorage, etc. ) 
+
+--------
+
+
+
+
+problems working with browser APIs directly ( with plain javascript )
+-----------------
+
+-> browser compatibility issues ( different browsers may have different implementations of the same API )
+-> memory leaks ( if not handled properly, can lead to performance issues )
+-> performance issues ( if not handled properly, can lead to slow rendering and unresponsive UI )
+-> too much boilerplate code ( can lead to code duplication and maintenance issues )
+-> code re-usability issues ( can lead to code duplication and maintenance issues ) 
+.....
+
+Solution:
+-----------------
+
+-> use third-party libraries and frameworks 
+
+1. JQuery ( 2006 - 2015 ) - a library that simplifies DOM manipulation and event handling
+
+
+MVC (Model-View-Controller) pattern based frameworks
+------------------
+
+1. backbonejs 
+2. knockoutjs
+3. dojo
+4. ext-js
+5. emberjs
+6. angularjs  -> google
+...
+
+Component-based architecture based frameworks
+------------------
+
+1. reactjs ( 2013 - present ) - a library for building user interfaces using components
+2. angular ( 2016 - present ) - a framework for building web applications using components
+3. vuejs ( 2014 - present ) - a progressive framework for building user interfaces
+4. svelte ( 2016 - present ) - a compiler that generates highly optimized JavaScript code for building user interfaces
+5. lit ( 2019 - present ) - a library
+..
