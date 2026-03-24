@@ -153,3 +153,15 @@ Component-based architecture based frameworks
 4. svelte ( 2016 - present ) - a compiler that generates highly optimized JavaScript code for building user interfaces
 5. lit ( 2019 - present ) - a library
 ..
+
+
+
+
+-> why React.js?
+-----------------
+
+
+build tools
+-----------------
+
+- webpack
