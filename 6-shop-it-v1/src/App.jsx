@@ -1,6 +1,9 @@
 
+import { useState } from 'react'
 
 function App() {
+  console.log("App Rendered");
+  const [currentTab, setCurrentTab] = useState(1);
 
   const product = {
     id: 1,
@@ -8,6 +11,31 @@ function App() {
     price: 100000,
     description: "Laptop for all your computing needs",
     imageUrl: "/images/Laptop.png"
+  }
+
+  const handleTabChange = (tabIndex) => {
+    setCurrentTab(tabIndex);
+  }
+
+  const renderTabPanel = (product) => {
+    switch (currentTab) {
+      case 1:
+        return <div className="mt-3">{product.description}</div>
+      case 2:
+        return (
+          <div className="mt-3">
+            <ul>
+              <li>RAM: 16GB</li>
+              <li>Storage: 512GB SSD</li>
+              <li>Processor: Intel i7</li>
+            </ul>
+          </div>
+        )
+      case 3:
+        return <div className="mt-3">No reviews yet</div>
+      default:
+        return null;
+    }
   }
 
   return (
@@ -24,28 +52,18 @@ function App() {
               <div>{product.name}</div>
               <div>&#8377;{product.price}</div>
               <button className="btn btn-primary">Add to Cart</button>
-              <ul class="mt-3 nav nav-tabs">
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Description</a>
+              <ul className="mt-3 nav nav-tabs">
+                <li className="nav-item">
+                  <a onClick={() => handleTabChange(1)} className="nav-link" href="#">Description</a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Specification</a>
+                <li className="nav-item">
+                  <a onClick={() => handleTabChange(2)} className="nav-link" href="#">Specification</a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Reviews</a>
+                <li className="nav-item">
+                  <a onClick={() => handleTabChange(3)} className="nav-link" href="#">Reviews</a>
                 </li>
               </ul>
-              <div>{product.description}</div>
-              <div>
-                <ul>
-                  <li>8 GB RAM</li>
-                  <li>512 GB SSD</li>
-                  <li>Intel i7 Processor</li>
-                </ul>
-              </div>
-              <div>
-                None Yet
-              </div>
+              {renderTabPanel(product)}
             </div>
           </div>
         </div>
