@@ -10,7 +10,7 @@ import Table from "./Table"
 
 function Box() {
 
-    const [voteItems] = useState([
+    const [voteItems, setVoteItems] = useState([
         "foo",
         "bar",
         "baz",
@@ -40,9 +40,29 @@ function Box() {
         }
     }
 
+    const handleDelete = (name) => {
+        setVoteItems(voteItems.filter(item => item !== name))
+        setVoteLines(voteLines.filter(line => line.name !== name))
+    }
+
     const renderVoteItems = () => {
         return voteItems.map((item, index) => {
-            return (<Item key={index} name={item} onVote={handleVote} />)
+
+            let totalVotes = 0;
+            const existingLine = voteLines.find(line => line.name === item)
+            if (existingLine) {
+                totalVotes = existingLine.likes + existingLine.dislikes
+            }
+
+            return (
+                <Item
+                    key={index}
+                    name={item}
+                    totalVotes={totalVotes}
+                    onVote={handleVote}
+                    onDelete={handleDelete}
+                />
+            )
         })
     }
 

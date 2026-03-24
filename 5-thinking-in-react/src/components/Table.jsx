@@ -5,7 +5,7 @@ function Table({ voteLines = [] }) {
     const renderVoteLines = () => {
         return voteLines.map((line, index) => {
             return (
-                <tr key={index}>
+                <tr key={index} className={line.likes > line.dislikes ? "table-success" : line.likes < line.dislikes ? "table-danger" : ""}>
                     <th scope="row">{index + 1}</th>
                     <td>{line.name}</td>
                     <td>{line.likes}</td>
