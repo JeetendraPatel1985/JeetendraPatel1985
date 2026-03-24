@@ -161,7 +161,18 @@ Component-based architecture based frameworks
 -----------------
 
 
-build tools
+react build tools
 -----------------
 
-- webpack
+- vite
+- parcel
+
+
+--------------------------
+
+react core concepts
+-----------------
+
+- jsx
+- props
+- state

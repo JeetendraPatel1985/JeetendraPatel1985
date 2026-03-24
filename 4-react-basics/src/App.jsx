@@ -1,119 +1,81 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+
+import {
+  useState
+} from 'react'
+
+import Message from './components/Message.jsx'
+import { Button } from 'bootstrap'
 
 function App() {
-  const [count, setCount] = useState(0)
+  console.log("App :: rendered")
+
+  const [message, setMessage] = useState("welcome to react")
+  const [cart, setCart] = useState([
+    "mobile",
+    "laptop",
+    "tv"
+  ])
+  const [user, setUser] = useState({
+    name: "Nag",
+    email: "nag@example.com"
+  })
+
+  const handleGreeting = (message) => {
+    setMessage(message)
+  }
+
+  const handleAddToCart = () => {
+    setCart([
+      ...cart,
+      "headphone"
+    ])
+  }
+
+  const handleNameChange = () => {
+    setUser({
+      ...user,
+      name: "Nag N"
+    })
+  }
+  const handleEmailChange = () => {
+    setUser({
+      ...user,
+      email: "nag@npci.com"
+    })
+  }
 
   return (
     <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
+      <div className="container">
+        <div className='card'>
+          <div className='card-body'>
+            <div className="display-1">react basics</div>
+            <hr />
+            <div className='d-flex justify-content-between'>
+              <button onClick={handleNameChange} className='btn btn-primary'>Change Name</button>
+              <button onClick={handleEmailChange} className='btn btn-secondary'>Change Email</button>
+            </div>
+            <hr />
+            <div className='h3'>User: {user.name} - {user.email}</div>
+            <hr />
+            <button onClick={handleAddToCart} className='btn btn-dark'>Add to cart</button>
+            <hr />
+            <ul className='list-group'>
+              {cart.map((item) => (
+                <li className='list-group-item' key={item}>{item}</li>
+              ))}
+            </ul>
+            <hr />
+            <div className='d-flex justify-content-around'>
+              <button onClick={() => handleGreeting("good morning")} className='btn btn-primary'>GM</button>
+              <button onClick={() => handleGreeting("good noon")} className='btn btn-primary'>GN</button>
+              <button onClick={() => handleGreeting("good evening")} className='btn btn-primary'>GE</button>
+            </div>
+            <hr />
+            <Message message={message} from="Nag" />
+          </div>
         </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
-
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
+      </div>
     </>
   )
 }
