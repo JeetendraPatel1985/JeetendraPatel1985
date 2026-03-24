@@ -54,7 +54,7 @@ function App() {
               <button className="btn btn-primary">Add to Cart</button>
               <ul className="mt-3 nav nav-tabs">
                 <li className="nav-item">
-                  <a onClick={() => handleTabChange(1)} className="nav-link" href="#">Description</a>
+                  <a onClick={() => handleTabChange(1)} className="active nav-link" href="#">Description</a>
                 </li>
                 <li className="nav-item">
                   <a onClick={() => handleTabChange(2)} className="nav-link" href="#">Specification</a>
