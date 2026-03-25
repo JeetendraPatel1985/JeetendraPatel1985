@@ -9,6 +9,7 @@ import UserReducer from "./components/UseReducer"
 import UseRef from "./components/UseRef"
 import UseState from "./components/UseState"
 import UseTransition from "./components/UseTransition"
+import CustomHook from './components/CustomHook'
 
 const hooks = [
   {
@@ -60,6 +61,11 @@ const hooks = [
     id: 'useId', label: 'useId', category: 'Concurrency',
     bullets: ['Generates unique, stable IDs', 'Safe for SSR (server & client match)', 'Use for htmlFor, aria-describedby, etc.', 'Each component instance gets unique IDs'],
     component: <UseId />
+  },
+  {
+    id: 'customHook', label: 'Custom Hook', category: 'Custom',
+    bullets: ['Encapsulates reusable logic', 'Can use other hooks internally', 'Returns any value or function', 'Promotes code reuse and separation of concerns'],
+    component: <CustomHook />
   },
 ]
 
