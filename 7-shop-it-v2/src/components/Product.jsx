@@ -4,12 +4,28 @@ import classNames from 'classnames';
 function Product({ product }) {
 
     const [currentTab, setCurrentTab] = useState(1);
+    const reviews = [
+        {
+            id: 1,
+            name: 'John Doe',
+            rating: 5,
+            comment: 'This is a great product',
+            date: '2026-03-25'
+        },
+        {
+            id: 2,
+            name: 'Jane Doe',
+            rating: 4,
+            comment: 'This is a good product',
+            date: '2026-03-24'
+        }
+    ]
 
     const handleTabChange = (tabIndex) => {
         setCurrentTab(tabIndex);
     }
 
-    const renderTabPanel = (product) => {
+    const renderTabPanel = () => {
         switch (currentTab) {
             case 1:
                 return <div className="mt-3">{product.description}</div>
@@ -50,7 +66,7 @@ function Product({ product }) {
                         <a onClick={() => handleTabChange(3)} className={classNames('nav-link', { active: currentTab === 3 })} href="#">Reviews</a>
                     </li>
                 </ul>
-                {renderTabPanel(product)}
+                {renderTabPanel()}
             </div>
         </div>
     );
