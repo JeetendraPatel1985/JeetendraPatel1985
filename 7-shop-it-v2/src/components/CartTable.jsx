@@ -43,7 +43,7 @@ function CartTable({ cart, onRemove, onQuantityChange, onClearCart }) {
                     <td colSpan="3">Total</td>
                     <td>&#8377;{ cart.reduce((total, cartLine) => total + cartLine.total, 0) }</td>
                     <td>
-                        <button onClick={onClearCart} className="btn btn-primary">clear cart</button>
+                        <button onClick={onClearCart} className="btn btn-warning">clear cart</button>
                     </td>
                 </tr>
             </tfoot>

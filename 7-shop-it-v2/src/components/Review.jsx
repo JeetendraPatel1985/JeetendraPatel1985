@@ -9,7 +9,7 @@ function renderStars(rating) {
 function Review({ review }) {
     return (
         <div className="alert alert-info">
-            <h5>{review.name} - {renderStars(review.rating)}</h5>
+            <div>{review.name} - {renderStars(review.rating)}</div>
             <p>{review.comment}</p>
             <p>{review.date}</p>
         </div>

@@ -57,7 +57,7 @@ function App() {
       <hr />
       <CartBadge cartCount={cart.length} />
       <hr />
-      <button onClick={handleToggleCart} className="btn btn-primary">Toggle Cart</button>
+      <button onClick={handleToggleCart} className="btn btn-secondary">Toggle Cart</button>
       <hr/>
       {iscartOpen && (
         <CartTable

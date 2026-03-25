@@ -78,8 +78,8 @@ function Product({ product, onBuy, cart }) {
                 <div>{product.name}</div>
                 <div>&#8377;{product.price}</div>
                 <button disabled={isInCart} onClick={() => handleBuy()} className="btn btn-primary">Add to Cart</button>
-                &nbsp;
-                {isInCart && 'Item in cart'} <br/>
+                <br/>
+                {isInCart && 'Item in cart'},
                 {isInCart && `quantity: ${cartLine.quantity}`}
                 <ul className="mt-3 nav nav-tabs">
                     <li className="nav-item">
