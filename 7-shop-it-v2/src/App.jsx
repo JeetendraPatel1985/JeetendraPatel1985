@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Navbar from './components/Navbar';
 import ProductList from './components/ProductList';
 import CartBadge from './components/CartBadge';
+import CartTable from './components/CartTable';
 
 function App() {
 
@@ -18,6 +19,8 @@ function App() {
       <Navbar title="Shop IT" />
       <hr />
       <CartBadge cartCount={cart.length} />
+      <hr />
+      <CartTable cart={cart} />
       <hr />
       <ProductList
         onBuy={handleBuy}
