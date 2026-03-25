@@ -10,8 +10,8 @@ a. state management hooks
 
 b. side effect management hooks
 -------------------------
-- useEffect
-- useLayoutEffect
+- useEffect - after paint
+- useLayoutEffect - before paint
 c. DOM management hooks
 -------------------------
 - useRef
@@ -23,7 +23,7 @@ e. performance optimization hooks
 - useMemo
 - useCallback
 
-d. context management hooks
+d. concurrency management hooks
 -------------------------
 - useTransition
 - useDeferredValue
