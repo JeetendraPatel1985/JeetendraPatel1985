@@ -2,7 +2,7 @@ import { useState } from 'react'
 import classNames from 'classnames';
 import Review from './Review';
 
-function Product({ product, onBuy }) {
+function Product({ product, onBuy, cart }) {
 
     const [currentTab, setCurrentTab] = useState(1);
     const reviews = [
@@ -21,6 +21,8 @@ function Product({ product, onBuy }) {
             date: '2026-03-24'
         }
     ]
+
+    const isInCart = cart.some(item => item.id === product.id);
 
     const handleTabChange = (tabIndex) => {
         setCurrentTab(tabIndex);
@@ -58,11 +60,12 @@ function Product({ product, onBuy }) {
     }
 
     const handleBuy = () => {
-        onBuy({
+        const cartLine = {
             id: product.id,
             name: product.name,
             price: product.price
-        });
+        }
+        onBuy(cartLine);
     }
 
     return (
@@ -73,7 +76,9 @@ function Product({ product, onBuy }) {
             <div className="col-8">
                 <div>{product.name}</div>
                 <div>&#8377;{product.price}</div>
-                <button onClick={() => handleBuy()} className="btn btn-primary">Add to Cart</button>
+                <button disabled={isInCart} onClick={() => handleBuy()} className="btn btn-primary">Add to Cart</button>
+                &nbsp;
+                {isInCart && "Item in cart"}
                 <ul className="mt-3 nav nav-tabs">
                     <li className="nav-item">
                         <a onClick={() => handleTabChange(1)} className={classNames('nav-link', { active: currentTab === 1 })} href="#">Description</a>

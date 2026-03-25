@@ -2,7 +2,7 @@
 
 import Product from './Product';
 
-function ProductList({ onBuy }) {
+function ProductList({ onBuy, cart }) {
 
     const products = [
         {
@@ -26,7 +26,7 @@ function ProductList({ onBuy }) {
     const renderProducts = () => {
         return products.map(product => (
             <div className="list-group-item" key={product.id}>
-                <Product product={product} onBuy={onBuy} />
+                <Product product={product} onBuy={onBuy} cart={cart} />
             </div>
         ))
     }
