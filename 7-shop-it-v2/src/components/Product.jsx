@@ -22,7 +22,8 @@ function Product({ product, onBuy, cart }) {
         }
     ]
 
-    const isInCart = cart.some(item => item.id === product.id);
+    const isInCart = cart.some(cartLine => cartLine.id === product.id);
+    const cartLine = cart.find(cartLine => cartLine.id === product.id);
 
     const handleTabChange = (tabIndex) => {
         setCurrentTab(tabIndex);
@@ -78,7 +79,8 @@ function Product({ product, onBuy, cart }) {
                 <div>&#8377;{product.price}</div>
                 <button disabled={isInCart} onClick={() => handleBuy()} className="btn btn-primary">Add to Cart</button>
                 &nbsp;
-                {isInCart && "Item in cart"}
+                {isInCart && 'Item in cart'} <br/>
+                {isInCart && `quantity: ${cartLine.quantity}`}
                 <ul className="mt-3 nav nav-tabs">
                     <li className="nav-item">
                         <a onClick={() => handleTabChange(1)} className={classNames('nav-link', { active: currentTab === 1 })} href="#">Description</a>
