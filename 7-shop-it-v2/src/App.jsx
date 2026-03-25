@@ -27,13 +27,20 @@ function App() {
     }
   }
 
+  const handleRemove = (id) => {
+    setCart(cart.filter(item => item.id !== id));
+  }
+
   return (
     <div className="container">
       <Navbar title="Shop IT" />
       <hr />
       <CartBadge cartCount={cart.length} />
       <hr />
-      <CartTable cart={cart} />
+      <CartTable
+        cart={cart}
+        onRemove={handleRemove}
+      />
       <hr />
       <ProductList
         onBuy={handleBuy}
