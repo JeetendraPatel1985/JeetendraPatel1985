@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import classNames from 'classnames';
+import Review from './Review';
 
 function Product({ product }) {
 
@@ -25,6 +26,12 @@ function Product({ product }) {
         setCurrentTab(tabIndex);
     }
 
+    const renderReviews = () => {
+        return reviews.map(review => (
+           <Review key={review.id} review={review} />
+        ))
+    }
+
     const renderTabPanel = () => {
         switch (currentTab) {
             case 1:
@@ -40,7 +47,11 @@ function Product({ product }) {
                     </div>
                 )
             case 3:
-                return <div className="mt-3">No reviews yet</div>
+                return (
+                    <>
+                        {renderReviews()}
+                    </>
+                )
             default:
                 return null;
         }
